@@ -23,3 +23,6 @@ distance:
   type: kedro1.io.nested_json.NestedJSONDataSet
   filepath: data/01_raw/distance.json
   nested_key: ['rows','elements']
+  save_args:
+    path_or_buf: data/02_intermediate/processed_distance.csv
+    index: False
