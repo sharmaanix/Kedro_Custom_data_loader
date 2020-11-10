@@ -39,14 +39,12 @@ class NestedJSONDataSet(AbstractDataSet):
         return isfile(self._filepath)
 
 
-    def _load(self):
+    def _load(self) -> None:
         return self.normalize_json()
 
 
     def _save(self, data: pd.DataFrame) -> None:
-        writer = pd.ExcelWriter(self._filepath, engine=self._engine)
-        data.to_excel(writer, **self._save_args)
-        writer.save()
+        data.to_csv(**self._save_args)
     
     def normalize_json(self):
         with open(self._filepath) as json_file:
