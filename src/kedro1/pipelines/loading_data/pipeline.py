@@ -10,7 +10,6 @@ def create_pipeline(**kwargs):
                 func=extract_json,
                 inputs=['params:filepath', 'params:nested_key' ],
                 outputs="extracted_json",
-                name="extracting json file"
             )
         ]
     )
