@@ -1,1 +1,2 @@
-
+filepath: "data/01_raw/distance.json"
+nested_key: ['rows','elements']
