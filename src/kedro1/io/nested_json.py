@@ -3,7 +3,7 @@ from typing import Any, Dict, List
 
 import json
 import pandas as pd
-from pandas.io.json import json_normalize
+# from pandas.io.json import json_normalize
 
 from kedro.io import AbstractDataSet
 
@@ -59,7 +59,7 @@ class NestedJSONDataSet(AbstractDataSet):
             else:
                 assert "Type Error: Datatype not found"
         #JSON normalization
-        df1 = json_normalize(temp_json)
+        df1 = pd.json_normalize(temp_json)
         del data[self._nested_key[0]]
         df2 = pd.DataFrame(data)
         return  pd.concat([df2, df1], axis=1)
