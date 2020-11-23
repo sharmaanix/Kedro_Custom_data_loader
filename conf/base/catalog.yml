@@ -26,3 +26,12 @@ distance:
   save_args:
     path_or_buf: data/02_intermediate/processed_distance.csv
     index: False
+
+raw_nyc_phil:
+  type: pandas.JSONDataSet
+  filepath: data/01_raw/raw_nyc_phil.json
+
+  extracted_json:
+    type: pandas.CSVDataSet
+    filepath: data/02_intermediate/preprocessed_shuttles.csv
+  
