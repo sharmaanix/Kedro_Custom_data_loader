@@ -36,6 +36,8 @@ from kedro.pipeline import Pipeline
 from kedro.versioning import Journal
 
 
+from kedro1.pipelines import data_loader as dl
+
 class ProjectHooks:
     @hook_impl
     def register_pipelines(self) -> Dict[str, Pipeline]:
@@ -45,7 +47,12 @@ class ProjectHooks:
             A mapping from a pipeline name to a ``Pipeline`` object.
 
         """
-        return {"__default__": Pipeline([])}
+        data_loader_pipeline = dl.create_pipeline()
+
+        return {
+            "dl" : data_loader_pipeline,
+            "__default__": data_loader_pipeline
+        }
 
     @hook_impl
     def register_config_loader(self, conf_paths: Iterable[str]) -> ConfigLoader:
