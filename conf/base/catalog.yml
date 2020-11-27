@@ -3,35 +3,15 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
 
-companies:
+extracted_json:
   type: pandas.CSVDataSet
-  filepath: data/01_raw/companies.csv
+  filepath: data/02_intermediate/preprocessed__pipeline_distance.csv
 
-reviews:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/reviews.csv
-
-shuttles:
-  type: kedro1.io.xls_local.ExcelLocalDataSet
-  filepath: data/01_raw/shuttles.xlsx
-
-json1: 
-  type: pandas.JSONDataSet
-  filepath: data/01_raw/json1.json
-
+  
 distance: 
   type: kedro1.io.nested_json.NestedJSONDataSet
   filepath: data/01_raw/distance.json
   nested_key: ['rows','elements']
   save_args:
-    path_or_buf: data/02_intermediate/processed_distance.csv
+    path_or_buf: data/02_intermediate/processed_io_distance.csv
     index: False
-
-raw_nyc_phil:
-  type: pandas.JSONDataSet
-  filepath: data/01_raw/raw_nyc_phil.json
-
-  extracted_json:
-    type: pandas.CSVDataSet
-    filepath: data/02_intermediate/preprocessed_shuttles.csv
-  
