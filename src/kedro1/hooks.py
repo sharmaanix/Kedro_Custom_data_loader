@@ -36,7 +36,7 @@ from kedro.pipeline import Pipeline
 from kedro.versioning import Journal
 
 
-from kedro1.pipelines import loading_data as ld
+from kedro1.pipelines.loading_data import pipeline as ld
 
 class ProjectHooks:
     @hook_impl
