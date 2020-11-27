@@ -19,3 +19,7 @@ def extract_json(filepath: str, nested_key: List) -> pd.DataFrame:
     del data[nested_key[0]]
     df2 = pd.DataFrame(data)
     return  pd.concat([df2, df1], axis=1)
+
+
+# data = extract_json(filepath="data/01_raw/distance.json",nested_key= ['rows','elements'])
+# print(data)
